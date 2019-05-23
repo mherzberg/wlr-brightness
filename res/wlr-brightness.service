@@ -1,0 +1,10 @@
+[Unit]
+Description=wlroots Brightness Control
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=wlr-brightness
+
+[Install]
+WantedBy=graphical-session.target

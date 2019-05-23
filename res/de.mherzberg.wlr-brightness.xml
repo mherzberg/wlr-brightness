@@ -1,0 +1,19 @@
+<node>
+	<interface name="de.mherzberg.wlr_brightness">
+		<method name="get">
+			<arg name="current_brightness" direction="out" type="d"/>
+		</method>
+		<method name="set">
+			<arg name="value" direction="in" type="d"/>
+			<arg name="current_brightness" direction="out" type="d"/>
+		</method>
+		<method name="increase">
+			<arg name="value" direction="in" type="d"/>
+			<arg name="current_brightness" direction="out" type="d"/>
+		</method>
+		<method name="decrease">
+			<arg name="value" direction="in" type="d"/>
+			<arg name="current_brightness" direction="out" type="d"/>
+		</method>
+	</interface>
+</node>

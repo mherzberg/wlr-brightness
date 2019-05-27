@@ -2,7 +2,7 @@
 
 wlr-brightness adjust the brightness of your screen when using
 [wlroots](https://github.com/swaywm/wlroots/)-based
-[Wayland](https://wayland.freedesktop.org/) comositors such as
+[Wayland](https://wayland.freedesktop.org/) compositors such as
 [sway](https://github.com/swaywm/sway/). It works by adjusting the gamma values
 of your screen and therefore supports both screens with and without backlight
 (such as OLED).

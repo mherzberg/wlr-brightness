@@ -105,7 +105,6 @@ static void registry_handle_global(void *data, struct wl_registry *registry,
 
 static void registry_handle_global_remove(void *data,
 		struct wl_registry *registry, uint32_t name) {
-	// Who cares?
 }
 
 static const struct wl_registry_listener registry_listener = {
@@ -221,34 +220,8 @@ on_name_acquired(GDBusConnection *connection, const gchar *name, gpointer user_d
 	!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (interface), connection, "/de/mherzberg/wlr-brightness", &error);
 }
 
-// static const char usage[] = "usage: gamma-control [options]\n"
-// 	"  -h          show this help message\n"
-// 	"  -c <value>  set contrast (default: 1)\n"
-// 	"  -b <value>  set brightness (default: 1)\n"
-// 	"  -g <value>  set gamma (default: 1)\n";
-
 int main(int argc, char *argv[]) {
 	 wl_list_init(&outputs);
-
-	// double contrast = 1, brightness = 1, gamma = 1;
-	// int opt;
-	// while ((opt = getopt(argc, argv, "hc:b:g:")) != -1) {
-	// 	switch (opt) {
-	// 	case 'c':
-	// 		contrast = strtod(optarg, NULL);
-	// 		break;
-	// 	case 'b':
-	// 		brightness = strtod(optarg, NULL);
-	// 		break;
-	// 	case 'g':
-	// 		gamma = strtod(optarg, NULL);
-	// 		break;
-	// 	case 'h':
-	// 	default:
-	// 		fprintf(stderr, usage);
-	// 		return opt == 'h' ? EXIT_SUCCESS : EXIT_FAILURE;
-	// 	}
-	// }
 
 	display = wl_display_connect(NULL);
 	if (display == NULL) {

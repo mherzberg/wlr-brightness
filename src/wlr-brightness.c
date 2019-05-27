@@ -11,7 +11,7 @@
 #include <wayland-client-protocol.h>
 #include <wayland-client.h>
 #include "gen/wlr-gamma-control-unstable-v1-client-protocol.h"
-#include "gen/wlr-brightnessbus.h"
+#include "gen/wlrbrightnessbus.h"
 
 struct output {
 	struct wl_output *wl_output;
@@ -172,52 +172,52 @@ set_brightness(double new_brightness)
 }
 
 static gboolean
-on_handle_increase (WlrBrightnessBusWlr_brightness *interface, GDBusMethodInvocation *invocation,
+on_handle_increase (WlrBrightnessBusWlrbrightness *interface, GDBusMethodInvocation *invocation,
 					const gdouble value, gpointer user_data)
 {
   set_brightness(current_brightness + value);
-	wlr_brightness_bus_wlr_brightness_complete_increase (interface, invocation, current_brightness);
+	wlr_brightness_bus_wlrbrightness_complete_increase (interface, invocation, current_brightness);
 	return TRUE;
 }
 
 static gboolean
-on_handle_decrease (WlrBrightnessBusWlr_brightness *interface, GDBusMethodInvocation *invocation,
+on_handle_decrease (WlrBrightnessBusWlrbrightness *interface, GDBusMethodInvocation *invocation,
 					const gdouble value, gpointer user_data)
 {
   set_brightness(current_brightness - value);
-	wlr_brightness_bus_wlr_brightness_complete_decrease (interface, invocation, current_brightness);
+	wlr_brightness_bus_wlrbrightness_complete_decrease (interface, invocation, current_brightness);
 	return TRUE;
 }
 
 static gboolean
-on_handle_set (WlrBrightnessBusWlr_brightness *interface, GDBusMethodInvocation *invocation,
+on_handle_set (WlrBrightnessBusWlrbrightness *interface, GDBusMethodInvocation *invocation,
 					const gdouble value, gpointer user_data)
 {
   set_brightness(value);
-	wlr_brightness_bus_wlr_brightness_complete_get (interface, invocation, current_brightness);
+	wlr_brightness_bus_wlrbrightness_complete_get (interface, invocation, current_brightness);
 	return TRUE;
 }
 
 static gboolean
-on_handle_get (WlrBrightnessBusWlr_brightness *interface, GDBusMethodInvocation *invocation,	gpointer user_data)
+on_handle_get (WlrBrightnessBusWlrbrightness *interface, GDBusMethodInvocation *invocation,	gpointer user_data)
 {
-	wlr_brightness_bus_wlr_brightness_complete_get (interface, invocation, current_brightness);
+	wlr_brightness_bus_wlrbrightness_complete_get (interface, invocation, current_brightness);
 	return TRUE;
 }
 
 static void
 on_name_acquired(GDBusConnection *connection, const gchar *name, gpointer user_data)
 {
-	WlrBrightnessBusWlr_brightness *interface;
+	WlrBrightnessBusWlrbrightness *interface;
 	GError *error;
 
-	interface = wlr_brightness_bus_wlr_brightness_skeleton_new();
+	interface = wlr_brightness_bus_wlrbrightness_skeleton_new();
 	g_signal_connect (interface, "handle-get", G_CALLBACK (on_handle_get), NULL);
 	g_signal_connect (interface, "handle-set", G_CALLBACK (on_handle_set), NULL);
 	g_signal_connect (interface, "handle-increase", G_CALLBACK (on_handle_increase), NULL);
 	g_signal_connect (interface, "handle-decrease", G_CALLBACK (on_handle_decrease), NULL);
 	error = NULL;
-	!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (interface), connection, "/de/mherzberg/wlr-brightness", &error);
+	!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (interface), connection, "/de/mherzberg/wlrbrightness", &error);
 }
 
 int main(int argc, char *argv[]) {

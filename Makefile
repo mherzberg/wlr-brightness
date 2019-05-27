@@ -11,15 +11,15 @@ out/wlr-brightness: out \
 	src/wlr-brightness.c \
 	gen/wlr-gamma-control-unstable-v1-client-protocol.h \
 	gen/wlr-gamma-control-unstable-v1-client-protocol.c \
-	gen/wlr-brightnessbus.h \
-	gen/wlr-brightnessbus.c
+	gen/wlrbrightnessbus.h \
+	gen/wlrbrightnessbus.c
 	$(CC) $(CFLAGS) \
 		-I. -Werror -DWLR_USE_UNSTABLE \
 		$(LIBS) \
 		-o $@ \
 		src/wlr-brightness.c \
 		gen/wlr-gamma-control-unstable-v1-client-protocol.c \
-	  gen/wlr-brightnessbus.c
+	  gen/wlrbrightnessbus.c
 
 gen/wlr-gamma-control-unstable-v1-client-protocol.h: gen
 	$(WAYLAND_SCANNER) client-header \
@@ -29,10 +29,10 @@ gen/wlr-gamma-control-unstable-v1-client-protocol.c: gen
 	$(WAYLAND_SCANNER) private-code \
 		vendor/wlr-protocols/unstable/wlr-gamma-control-unstable-v1.xml $@
 
-gen/wlr-brightnessbus.c gen/wlr-brightnessbus.h: gen
-	gdbus-codegen --output-directory gen --generate-c-code wlr-brightnessbus \
+gen/wlrbrightnessbus.c gen/wlrbrightnessbus.h: gen
+	gdbus-codegen --output-directory gen --generate-c-code wlrbrightnessbus \
 		--c-namespace WlrBrightnessBus --interface-prefix de.mherzberg. \
-		res/de.mherzberg.wlr-brightness.xml
+		res/de.mherzberg.wlrbrightness.xml
 
 gen:
 	mkdir -p gen

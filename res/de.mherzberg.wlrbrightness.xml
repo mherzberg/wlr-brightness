@@ -1,5 +1,5 @@
 <node>
-	<interface name="de.mherzberg.wlr_brightness">
+	<interface name="de.mherzberg.wlrbrightness">
 		<method name="get">
 			<arg name="current_brightness" direction="out" type="d"/>
 		</method>

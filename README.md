@@ -42,7 +42,7 @@ wlr-brightness is a Wayland-client and therefore needs to keep running. The
 brightness will reset to the maximum on exit. To control wlr-brightness, use any
 dbus utility, e.g.:
 
-    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlr-brightness -m de.mherzberg.wlr-brightness.get
-    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlr-brightness -m de.mherzberg.wlr-brightness.set 0.7
-    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlr-brightness -m de.mherzberg.wlr-brightness.increase 0.1
-    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlr-brightness -m de.mherzberg.wlr-brightness.decrease 0.1
+    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlrbrightness -m de.mherzberg.wlrbrightness.get
+    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlrbrightness -m de.mherzberg.wlrbrightness.set 0.7
+    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlrbrightness -m de.mherzberg.wlrbrightness.increase 0.1
+    gdbus call -e -d de.mherzberg -o /de/mherzberg/wlrbrightness -m de.mherzberg.wlrbrightness.decrease 0.1

@@ -30,7 +30,7 @@ If you want to install wlr-brightness, you can use the systemd service:
 
     sudo make install
     cp res/wlr-brightness.service ~/.config/systemd/user/
-    systemd --user enable --now wlr-brightness.service
+    systemctl --user enable --now wlr-brightness
 
 ## Usage
 
